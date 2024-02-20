@@ -8,8 +8,8 @@ The Authentication flow for the application is:
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                                                 | RETURNS
 -------|------------------|-------|------|--------------------|-----------------------------------------------------------------------------------|--------------------
-POST   | /auth/signup     | -     | user | User Signup              | `userName`, `nickName`, `email`, `password`, `birthDate` , `phone`          | { token: `token` }
-POST   | /auth/login      | -     | user | User Login               | `email`, `password`                                                         | { token: `token` }
+POST   | /auth/signup     | -     | user | User Signup              | `userName`, `nickName`, `email`, `password`, `birthDate` , `phone`          | { message: 'User signed up successfully', data: [`token`]}
+POST   | /auth/login      | -     | user | User Login               | `email`, `password`                                                         | { message: 'User logged up successfully', data: [`token`]}
 
 ### User Endpoints
 
