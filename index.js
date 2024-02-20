@@ -1,7 +1,9 @@
 const { checkDB, syncModels } = require('./db/index')
 const addRelations = require('./db/relations')
+const router = require('./api/routes/index')
 const express = require('express')
-
+const morgan = require('morgan')
+const cors = require('cors')
 
 async function dbConnect() {
   try {
@@ -16,6 +18,10 @@ async function dbConnect() {
 const app = express()
 const port = 3000
 
+app.use(express.json())
+app.use(morgan("dev"))
+app.use(cors())
+
 app.listen(port, async () => {
   try {
     await dbConnect()
@@ -24,3 +30,5 @@ app.listen(port, async () => {
     console.log(error)
   }
 })
+
+app.use('/api', router)
