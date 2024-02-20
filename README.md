@@ -8,7 +8,7 @@ The Authentication flow for the application is:
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                                                 | RETURNS
 -------|------------------|-------|------|--------------------|-----------------------------------------------------------------------------------|--------------------
-POST   | /auth/signup     | -     | user | User Signup              | `userName`, `nickName`, `email`, `password`, `birthDate` , `phone`          | { message: 'User signed up successfully', data: `token`}
+POST   | /auth/signup     | -     | user | User Signup              | `userName`, `nickName`, `email`, `password`, `age` , `phone`          | { message: 'User signed up successfully', data: `token`}
 POST   | /auth/login      | -     | user | User Login               | `email`, `password`                                                         | { message: 'User logged up successfully', data: `token`}
 
 ### User Endpoints
@@ -18,10 +18,10 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 GET    | /user            | YES   | user | Get All Users            |                                  | { message: 'Users fetched successfully', data: [`user`]}
 GET    | /user/profile    | YES   | user | Get Own Profile          |                                            |  { message: 'User fetched successfully', data: [`user`]}
 GET    | /user/:userId    | YES   | user | Get One User             | `params: userId`                             |  { message: 'User fetched successfully', data: [`user`]}
-POST   | /user            | YES   | admin| Create one user          | `userName`, `nickName`, `email`, `role`, `password`, `birthDate` , `phone` | { message: 'User created successfully', data: [`user`]}
-PUT    | /user/profile    | YES   | user | Update own profile       | `userName`, `nickName`, `email`, `birthDate` , `phone`   | { message: 'User created successfully', data: [`user`]}
+POST   | /user            | YES   | admin| Create one user          | `userName`, `nickName`, `email`, `role`, `password`, `age` , `phone` | { message: 'User created successfully', data: [`user`]}
+PUT    | /user/profile    | YES   | user | Update own profile       | `userName`, `nickName`, `email`, `age` , `phone`   | { message: 'User created successfully', data: [`user`]}
 PUT    | /user/password   | YES   | user | Reset password           | `newPassword` `repeatPassword`                             | { message: 'Password reset successfully'}
-PUT    | /user/:userId    | YES   | admin| Update one user          | `params: userId`, `userName`, `nickName`, `email`, `birthDate` , `phone` | { message: 'User updated successfully', data: [`user`]}
+PUT    | /user/:userId    | YES   | admin| Update one user          | `params: userId`, `userName`, `nickName`, `email`, `age` , `phone` | { message: 'User updated successfully', data: [`user`]}
 DELETE | /user/:userId    | YES   | admin| Delete one user          |  `params: userId`                                               | { message: 'User deleted successfully', data: [`user`]}
 DELETE | /user/profile    | YES   | user | Delete own profile       |                                                 | { message: 'User deleted successfully', data: [`user`]}
 
