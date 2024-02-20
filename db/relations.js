@@ -14,16 +14,12 @@ function addRelations() {
     })
 
     //ONE TO MANY - User & Tweet
-    User.hasMany(Tweet, {
-      onDelete: 'SET NULL'
-    })
-    Tweet.belongsTo(User, {
-      onDelete: 'SET NULL'
-    })
+    User.hasMany(Tweet, {})
+    Tweet.belongsTo(User, {})
 
     //MANY TO MANY
-    User.belongsToMany(Tweet, {through: 'like', as: 'likes', onDelete: 'SET NULL'})
-    Tweet.belongsToMany(User, {through: 'like', as: 'likes', onDelete: 'SET NULL'})
+    User.belongsToMany(Tweet, {through: 'like', as: 'likes'})
+    Tweet.belongsToMany(User, {through: 'like', as: 'likes'})
 
     //MANY TO MANY
     User.belongsToMany(User, {through: 'follower', as: 'follow'})
